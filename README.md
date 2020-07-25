@@ -10,19 +10,12 @@ These instructions will get you a copy of the project in your machine.
 2. Clone this repository
 3. Run `npm install`
 
-Obs: create a file named "config.json" in your home directory<br>
-and write a json object with the values "token" and "prefix"<br>
-
-```json
-{
-  "token": "<the token of the bot>",
-  "prefix": "<the prefix of the bot>",
-}
-```
+Obs: rename a file called ".env.example" to ".env"<br>
+and complete the values missing with the "token" and "prefix"<br>
 
 ## Authors
 
-* **MrDougz**
+- **MrDougz**
 
 ## License
 

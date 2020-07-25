@@ -2,7 +2,9 @@ const Discord = require('discord.js')
 const fs = require('fs')
 const path = require('path')
 
-const config = require('../config.json')
+const dotenv = require('dotenv')
+
+dotenv.config()
 
 const bot = new Discord.Client()
 bot.commands = new Discord.Collection()
@@ -20,7 +22,7 @@ for (let filename of commandFiles) {
   }
 }
 
-bot.login(config.token)
+bot.login(procces.env.token)
 
 bot.on('ready', () => {
   bot.user.setPresence({
@@ -33,9 +35,9 @@ bot.on('ready', () => {
 })
 
 bot.on('message', (msg) => {
-  if (!msg.content.startsWith(config.prefix) || msg.author.bot) return
+  if (!msg.content.startsWith(procces.env.prefix) || msg.author.bot) return
 
-  const args = msg.content.slice(config.prefix.length).split(' ')
+  const args = msg.content.slice(procces.env.prefix.length).split(' ')
   const command = args.shift().toLowerCase()
   try {
     bot.commands.get(command).execute(bot, msg, args)
