@@ -25,13 +25,39 @@ for (let filename of commandFiles) {
 bot.login(process.env.token)
 
 bot.on('ready', () => {
-  bot.user.setPresence({
-    activity: {
-      type: 'LISTENING',
-      name: 'Rainy Day - MrDougz (avaible on SoundCloud)',
+  let botActivity = [
+    {
+      activity: {
+        type: 'LISTENING',
+        name: 'Rainy Day - MrDougz (avaible on SoundCloud)',
+      },
     },
-    status: 'idle',
-  })
+    {
+      activity: {
+        type: 'PLAYING',
+        name: `Add me to your server!`,
+      },
+    },
+    {
+      activity: {
+        type: 'WATCHING',
+        name: 'MrDougz Channel',
+      },
+    },
+  ]
+
+  let maxIndex = botActivity.length - 1
+
+  let currentIndex = 0
+
+  setInterval(() => {
+    bot.user.setPresence(botActivity[currentIndex])
+
+    currentIndex++
+    if (currentIndex > maxIndex) {
+      currentIndex = 0
+    }
+  }, 7000)
 })
 
 bot.on('message', (msg) => {
