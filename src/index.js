@@ -22,7 +22,7 @@ for (let filename of commandFiles) {
   }
 }
 
-bot.login(procces.env.token)
+bot.login(process.env.token)
 
 bot.on('ready', () => {
   bot.user.setPresence({
@@ -35,9 +35,9 @@ bot.on('ready', () => {
 })
 
 bot.on('message', (msg) => {
-  if (!msg.content.startsWith(procces.env.prefix) || msg.author.bot) return
+  if (!msg.content.startsWith(process.env.prefix) || msg.author.bot) return
 
-  const args = msg.content.slice(procces.env.prefix.length).split(' ')
+  const args = msg.content.slice(process.env.prefix.length).split(' ')
   const command = args.shift().toLowerCase()
   try {
     bot.commands.get(command).execute(bot, msg, args)
