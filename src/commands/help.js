@@ -1,13 +1,10 @@
 const execute = (bot, msg, args) => {
   let string = '====HELP====\n\n'
-  bot.mainName.forEach((name) => {
-    bot.descs.forEach((desc) => {
-      if (desc) {
-        string += `\`${process.env.prefix}${bot.mainName.get(
-          name
-        )}: ${bot.descs.get(desc)}\`\n`
-      }
-    })
+
+  bot.dmmainName.forEach((command) => {
+    if (command.desc) {
+      string += `**\`${process.env.prefix}${command.names[0]}\`** => ${command.desc}\n`
+    }
   })
 
   return msg.channel.send(`${msg.author},\n${string}`)

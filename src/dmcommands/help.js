@@ -1,9 +1,9 @@
 const execute = (bot, msg, args) => {
   let string = '====HELP====\n\n'
 
-  bot.dmdescs.forEach((desc) => {
-    if (desc) {
-      string += `\`${process.env.prefix}${bot.dmmainName}: ${desc}\`\n`
+  bot.mainName.forEach((command) => {
+    if (command.desc) {
+      string += `**\`${process.env.prefix}${command.names[0]}\`** => ${command.desc}\n`
     }
   })
 
