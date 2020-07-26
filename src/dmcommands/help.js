@@ -3,7 +3,7 @@ const execute = (bot, msg, args) => {
 
   bot.dmdescs.forEach((desc) => {
     if (desc) {
-      string += `\`**${process.env.prefix}${bot.dmmainName}**: ${desc}\`\n`
+      string += `\`${process.env.prefix}${bot.dmmainName}: ${desc}\`\n`
     }
   })
 
