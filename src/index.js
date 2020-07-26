@@ -28,7 +28,7 @@ for (let filename of commandFiles) {
 
 //'direct message' commands
 const dmCommandFiles = fs
-  .readFileSync(path.join(__dirname, '/dmcommands'))
+  .readdirSync(path.join(__dirname, '/dmcommands'))
   .filter((filename) => filename.endsWith('.js'))
 
 for (let filename of dmCommandFiles) {
