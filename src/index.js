@@ -83,7 +83,7 @@ bot.on('message', (msg) => {
   const args = msg.content.slice(process.env.prefix.length).split(' ')
   const command = args.shift().toLowerCase()
   try {
-    if (!msg.channel.type !== 'dm') {
+    if (msg.channel.type !== 'dm') {
       bot.commands.get(command).execute(bot, msg, args)
     } else if (msg.channel.type === 'dm') {
       bot.dmcommands.get(command).execute(bot, msg, args)
