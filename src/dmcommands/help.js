@@ -7,7 +7,7 @@ const execute = (bot, msg, args) => {
     }
   })
 
-  return msg.channel.send(`${msg.author},\n${string}`)
+  return msg.reply(`\n${string}`)
 }
 
 module.exports = {
