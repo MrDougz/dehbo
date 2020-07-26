@@ -10,5 +10,6 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   names: ['stop', 's'],
+  desc: 'Stop the queue of songs that are playing',
   execute,
 }

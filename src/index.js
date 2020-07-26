@@ -7,9 +7,16 @@ const dotenv = require('dotenv')
 dotenv.config()
 
 const bot = new Discord.Client()
+
 bot.commands = new Discord.Collection()
 
 bot.dmcommands = new Discord.Collection()
+
+bot.mainName = new Discord.Collection()
+bot.descs = new Discord.Collection()
+
+bot.dmmainName = new Discord.Collection()
+bot.dmdescs = new Discord.Collection()
 
 bot.queues = new Map()
 
@@ -20,6 +27,10 @@ const commandFiles = fs
 
 for (let filename of commandFiles) {
   const command = require(`./commands/${filename}`)
+
+  bot.descs.set(command.desc, command)
+
+  bot.mainName.set(command.names[0], command)
 
   for (name of command.names) {
     bot.commands.set(name, command)
@@ -33,6 +44,10 @@ const dmCommandFiles = fs
 
 for (let filename of dmCommandFiles) {
   const command = require(`./dmcommands/${filename}`)
+
+  bot.dmdescs.set(command.desc, command)
+
+  bot.dmmainName.set(command.names[0], command)
 
   for (name of command.names) {
     bot.dmcommands.set(name, command)

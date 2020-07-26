@@ -1,7 +1,13 @@
 const execute = (bot, msg, args) => {
-  return msg.channel.send(
-    `hello ${msg.author}! the you can see the list of commands here: `
-  )
+  let string = '====HELP====\n\n'
+
+  bot.dmdescs.forEach((desc) => {
+    if (desc) {
+      string += `\`**${process.env.prefix}${bot.dmmainName}**: ${desc}\`\n`
+    }
+  })
+
+  return msg.channel.send(`${msg.author},\n${string}`)
 }
 
 module.exports = {

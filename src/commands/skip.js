@@ -17,5 +17,6 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   names: ['skip'],
+  desc: 'Skip the current song that are playing',
   execute,
 }

@@ -8,5 +8,6 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   names: ['resume', 'r'],
+  desc: 'Resume the current song if is paused',
   execute,
 }

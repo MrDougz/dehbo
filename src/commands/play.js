@@ -65,6 +65,7 @@ const playSong = async (bot, msg, song) => {
 
 module.exports = {
   names: ['play', 'p'],
+  desc: 'Play a song in your voice channel or add to your queue of songs',
   execute,
   playSong,
 }

@@ -8,5 +8,6 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   names: ['pause'],
+  desc: 'Pause the current song playing',
   execute,
 }

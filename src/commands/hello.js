@@ -4,5 +4,6 @@ const execute = (bot, msg, args) => {
 
 module.exports = {
   names: ['hello'],
+  desc: 'Say a hello message',
   execute,
 }

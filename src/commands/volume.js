@@ -18,5 +18,6 @@ const execute = (bot, msg, args) => {
 }
 module.exports = {
   names: ['volume', 'vol', 'v'],
+  desc: 'Set the volume of the song playing',
   execute,
 }
