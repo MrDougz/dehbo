@@ -28,11 +28,11 @@ for (let filename of commandFiles) {
 
 //'direct message' commands
 const dmCommandFiles = fs
-  .readFileSync(path.join(__dirname, '/commands/dm'))
+  .readFileSync(path.join(__dirname, '/dmcommands'))
   .filter((filename) => filename.endsWith('.js'))
 
 for (let filename of dmCommandFiles) {
-  const command = require(`./commands/dm/${filename}`)
+  const command = require(`./dmcommands/${filename}`)
 
   for (name of command.names) {
     bot.dmcommands.set(name, command)
