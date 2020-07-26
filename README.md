@@ -11,7 +11,7 @@ These instructions will get you a copy of the project in your machine.
 3. Run `npm install`
 
 Obs: rename a file called ".env.example" to ".env"<br>
-and complete the values missing with the "token" and "prefix"<br>
+and complete the values missing with the "token" and "prefix" of your bot.<br>
 
 ## Authors
 

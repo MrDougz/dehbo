@@ -8,8 +8,12 @@ dotenv.config()
 
 const bot = new Discord.Client()
 bot.commands = new Discord.Collection()
+
+bot.dmcommands = new Discord.Collection()
+
 bot.queues = new Map()
 
+//main commands
 const commandFiles = fs
   .readdirSync(path.join(__dirname, '/commands'))
   .filter((filename) => filename.endsWith('.js'))
@@ -19,6 +23,19 @@ for (let filename of commandFiles) {
 
   for (name of command.names) {
     bot.commands.set(name, command)
+  }
+}
+
+//'direct message' commands
+const dmCommandFiles = fs
+  .readFileSync(path.join(__dirname, '/commands/dm'))
+  .filter((filename) => filename.endsWith('.js'))
+
+for (let filename of dmCommandFiles) {
+  const command = require(`./commands/dm/${filename}`)
+
+  for (name of command.names) {
+    bot.dmcommands.set(name, command)
   }
 }
 
@@ -66,8 +83,13 @@ bot.on('message', (msg) => {
   const args = msg.content.slice(process.env.prefix.length).split(' ')
   const command = args.shift().toLowerCase()
   try {
-    bot.commands.get(command).execute(bot, msg, args)
+    if (!msg.channel.type !== 'dm') {
+      bot.commands.get(command).execute(bot, msg, args)
+    } else if (msg.channel.type === 'dm') {
+      bot.dmcommands.get(command).execute(bot, msg, args)
+    }
   } catch (err) {
+    console.log(err)
     return
   }
 })
