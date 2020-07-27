@@ -11,6 +11,6 @@ const execute = (bot, msg, args) => {
 }
 
 module.exports = {
-  names: ['help', 'h'],
+  names: ['help', 'h', 'ajuda'],
   execute,
 }

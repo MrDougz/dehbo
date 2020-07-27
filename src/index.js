@@ -49,55 +49,5 @@ for (let filename of dmCommandFiles) {
 
 bot.login(process.env.token)
 
-bot.on('ready', () => {
-  let botActivity = [
-    {
-      activity: {
-        type: 'LISTENING',
-        name: 'Rainy Day - MrDougz (avaible on SoundCloud)',
-      },
-    },
-    {
-      activity: {
-        type: 'PLAYING',
-        name: `Add me to your server!`,
-      },
-    },
-    {
-      activity: {
-        type: 'WATCHING',
-        name: 'MrDougz Channel',
-      },
-    },
-  ]
-
-  let maxIndex = botActivity.length - 1
-
-  let currentIndex = 0
-
-  setInterval(() => {
-    bot.user.setPresence(botActivity[currentIndex])
-
-    currentIndex++
-    if (currentIndex > maxIndex) {
-      currentIndex = 0
-    }
-  }, 7000)
-})
-
-bot.on('message', (msg) => {
-  if (!msg.content.startsWith(process.env.prefix) || msg.author.bot) return
-
-  const args = msg.content.slice(process.env.prefix.length).split(' ')
-  const command = args.shift().toLowerCase()
-  try {
-    if (msg.channel.type !== 'dm') {
-      bot.commands.get(command).execute(bot, msg, args)
-    } else if (msg.channel.type === 'dm') {
-      bot.dmcommands.get(command).execute(bot, msg, args)
-    }
-  } catch (err) {
-    console.log(err)
-    return
-  }
-})
+require('./methods/on-ready')(bot)
+require('./methods/on-message')(bot)
