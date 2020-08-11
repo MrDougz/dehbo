@@ -4,13 +4,19 @@ module.exports = (bot) => {
       {
         activity: {
           type: 'LISTENING',
-          name: 'Rainy Day - MrDougz (avaible on SoundCloud)',
+          name: 'Rainy Day - MrDougz',
         },
       },
       {
         activity: {
           type: 'PLAYING',
           name: `Add me to your server!`,
+        },
+      },
+      {
+        activity: {
+          type: 'PLAYING',
+          name: `I'm in ${bot.guilds.size} servers!`,
         },
       },
       {

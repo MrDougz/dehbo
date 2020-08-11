@@ -1,4 +1,4 @@
-module.exports = (bot) => {
+module.exports = async (bot) => {
   bot.on('message', (msg) => {
     if (!msg.content.startsWith(process.env.prefix) || msg.author.bot) {
       return

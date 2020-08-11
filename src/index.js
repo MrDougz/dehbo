@@ -49,5 +49,5 @@ for (let filename of dmCommandFiles) {
 
 bot.login(process.env.token)
 
-require('./methods/on-ready')(bot)
-require('./methods/on-message')(bot)
+require('./events/on-ready')(bot)
+require('./events/on-message')(bot)
