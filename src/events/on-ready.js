@@ -16,7 +16,7 @@ module.exports = (bot) => {
       {
         activity: {
           type: 'PLAYING',
-          name: `I'm in ${bot.guilds.size} servers!`,
+          name: `Hollow Knight is amazing...`,
         },
       },
       {
